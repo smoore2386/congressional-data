@@ -1,0 +1,1081 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.2">
+  <help_text>// Uncomment the following line to change the fontsize:
+fontsize=8
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// Welcome to UMLet!
+//
+// Double-click on UML elements to add them to the diagram, or to copy them
+// Edit elements by modifying the text in this panel
+// Hold Ctrl to select multiple elements
+// Use Ctrl+mouse to select via lasso
+//
+// Use ± or Ctrl+mouse wheel to zoom
+// Drag a whole relation at its central square icon
+//
+// Press Ctrl+C to copy the whole diagram to the system clipboard (then just paste it to, eg, Word)
+// Edit the files in the "palettes" directory to create your own element palettes
+//
+// Select "Custom Elements &gt; New..." to create new element types
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// This text will be stored with each diagram;  use it for notes.</help_text>
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>260</x>
+      <y>750</y>
+      <w>250</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>cis::model::CensusModel
+--
+- census: Census
+- listeners: ArrayList&lt;ActionListener&gt;
+--
++ CensusModel()
++ CensusModel(census: Census)
++ newCensus(year: Integer): void
++ addState(state:State, overwrite:boolean):void
++ deleteState(state State):void
++ clearState(state: State):void
++ addPlace(state:String, place:Place, overwrite:boolean):void
++ deletePlace(state: String, place:Place):void
++ clearPlaces(state:String):void
++ addData(state:String, place:String, data:Data, overwrite:boolean):void
++ clearData(state: String, place:String):void
++ importCensus(fileLocation: String): boolean
++ loadCensus(fileLocation: String): boolean
++ exportCensus(fileLocation: String): boolean
++ saveCensus(fileLocation: String): boolean
++ getCensus():Census
++ processEvent(event: ActionEvent): void
++ addActionListener(listener: ActionListener): void
++ removeActionListener(listener: ActionListener): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>260</x>
+      <y>910</y>
+      <w>250</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>cis::model::Census
+--
+- year: Integer
+- states: LinkedHashMap&lt;Integer,State&gt;
+- incomeLevels: ArrayList&lt;String&gt;
+- serialVersionId: long
+--
++ Census()
++ Census(year: Integer)
++ Census(year: Integer, states: LinkedHAshMap&lt;Integer,State&gt;)
++ getYear(): Integer
++ getStates(): LinkedHashMap&lt;Integer, State&gt;
++ setYear(year: Integer): void
++ setIncomeLevels(ArrayList&lt;String&gt;): void
++ getIncomeLevels(ArrayList&lt;String&gt;):void
++ setStates(states: LinkedHashMap&lt;Integer, State&gt;): void
++ addState(name: String, boolean): boolean
++ addNewState(name: St): boolean
++ removeState(name: String): boolean
++ clearStates(): boolean
++ stateExists(stateName: State): boolean
++ toString(): String
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>260</x>
+      <y>1150</y>
+      <w>250</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>cis::model::State
+--
+- name: String
+- places: LinkedHashMap&lt;Integer,Place&gt;
+- serialVersionId: long
+--
++ State()
++ State(name: String)
++ State(name: String, places: LinkedHashMap&lt;Integer, Place&gt;)
++ getName(): String
++ getPlaces(): ArrayList&lt;Place&gt;
++ setName(name: String): void
++ setPlaces(places: LinkedHashMap&lt;Integer,Place&gt;): void
++ addPlace(name: String, data: LinkedMap&lt;Data&gt;): boolean
++ addNewPlace(name:String): boolean
++ removePlace(place:Place):boolean
++ clearPlaces(): boolean
++ placeExists(place: Place): boolean
++ equals(state:State): boolean
++ getKeyValue():Integer
++ toString(): String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>260</x>
+      <y>1570</y>
+      <w>250</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>cis::model::Data
+--
+- incomeRange: String
+- households: Integer
+- serialVersionId: long
+--
++ Data()
++ Data(incomeRange: String)
++ Data(incomeRange: String, households: Integer)
++ setIncomeRange(incomeRange: String): void
++ setHouseholds(households: Integer): void
++ getIncomeRange(): String
++ getHouseholds(): Integer
++ getKeyValue(): Integer
++ equals(data:Data):boolean
++ toString(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>80</x>
+      <y>960</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>/&lt;&lt;interface&gt;&gt;/
+/Serializable/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>600</x>
+      <y>950</y>
+      <w>100</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>/&lt;&lt;interface&gt;&gt;/
+/Writable/
+--
+/+ toString(): String/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>480</x>
+      <y>960</y>
+      <w>210</w>
+      <h>700</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>190;30;190;680;30;680</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>480</x>
+      <y>960</y>
+      <w>170</w>
+      <h>310</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>150;30;150;290;30;290</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>480</x>
+      <y>960</y>
+      <w>150</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>130;30;130;50;30;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>260</x>
+      <y>1370</y>
+      <w>250</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>cis::model::Place
+--
+- name: String
+- data: LinkedHashMap&lt;Integer, Data&gt;
+- serialVersionId: long
+- incomeRanges: Strinmg[]
+--
++ Place()
++ Place(name: String)
++ Place(name: String, data: LinkedHashMap&lt;Integer,Data&gt;)
++ getName(): String
++ getData(): LinkedHashMap&lt;Data&gt;): void
++ setName(name: String): void
++ setData(data: data:LinkedHashMap&lt;Integer, Data&gt;): void
++ addData(data: Data, boolean: boolean): boolean
++ clearData(): boolean
++ dataExists(data: Data): boolean
++ getTotalHouseholds():Integer
++ getKeyValue():Integer
+- populateData():boolean
++ toString(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>480</x>
+      <y>960</y>
+      <w>190</w>
+      <h>510</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>170;30;170;490;30;490</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>140</x>
+      <y>960</y>
+      <w>140</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>30;30;30;50;120;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>120</x>
+      <y>960</y>
+      <w>160</w>
+      <h>310</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>30;30;30;290;140;290</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>100</x>
+      <y>960</y>
+      <w>180</w>
+      <h>510</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>30;30;30;490;160;490</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>80</x>
+      <y>960</y>
+      <w>200</w>
+      <h>700</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>30;30;30;680;180;680</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>350</x>
+      <y>1520</y>
+      <w>50</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>350</x>
+      <y>1310</y>
+      <w>50</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;60</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>350</x>
+      <y>1080</y>
+      <w>50</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;70</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>350</x>
+      <y>860</y>
+      <w>50</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>240</x>
+      <y>260</y>
+      <w>300</w>
+      <h>480</h>
+    </coordinates>
+    <panel_attributes>cis::view::SelectionView
+--
+- censusModel: CensusModel
+- menuBar: JMenubar
+- fileMenu: JMenu
+- dataMenu: JMenu
+- newCensusMenuItem: JMenuItem
+- importCensusMenuItem: JMenuItem
+- exportCensusMenuItem: JMenuItem
+- loadCensusMenuItem: JMenuItem
+- saveCensusMenuItem: JMenuItem
+- exitProgramMenuItem: JMenuItem
+- graphDataMenuItem: JMenuItem
+- enterModifyDataMenuItem: JMenuItem
+- clearDataMenuItem: JMenuItem
+- layoutPanel: JPanel
+- stateButtonPanel: JPanel
+- placeButtonPanel: JPanel
+- newStateButton: JButton
+- deleteStateButton: JButton
+- deleteAllStatesButton: JButton
+- newPlaceButton: JButton
+- deletePlaceButton: JButton
+- deleteAllPlacesButton: JButton
+- stateList: JList
+- placesList: JList
+- stateScroller: JScrollPane
+- placeScroller: JScrollPane
+--
++ SelectionView()
++ makeLayout():void
++ populateStatesList():boolean
++ populatePlacesList(state:State):boolean
++ setModel(model: CensusModel): void
++ actionPerformed(actionEvent:ActionEvent):void
++ getModel():CensusModel
++ getNewCensusMenuItem(): JMenuItem
++ getImportCensusMenuItem(): JMenuItem
++ getExportCensusMenuItem(): JMenuItem
++ getLoadCensusMenuItem(): JMenuItem
++ getSaveCensusMenuItem(): JMenuItem
++ getExitMenuItem(): JMenuItem
++ getGraphDataMenuItem(): JMenuItem
++ getEnterModifyDataMenuItem(): JMenuItem
++ getClearDataMenuItem(): JMenuItem
++ getNewStateButton(): JButton
++ getDeleteStateButton(): JButton
++ getDeleteAllStatesButton(): JButton
++ getNewPlaceButton(): JButton
++ getDeletePlaceButton(): JButton
++ getDeleteAllPlacesButton(): JButton
++ getStateList():JList
++ getPlaceList():JList</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>350</x>
+      <y>710</y>
+      <w>50</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;40</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>580</x>
+      <y>300</y>
+      <w>190</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>cis::view::PieChartView
+--
+- censusModel: CensusModel
+- frame: JFrame
+--
++ PieChartView()
++ PieChartView(place: Place)
++ actionPerformed(event: ActionEvent):void
++ paintComponent(g:Graphics):void
++ setPlace(place: Place): void
++ getPlace(): Place
++ drawData(place: Place): boolean
++ paintComponent(g: Graphics): void
+- drawKey(g: Graphics): void
+- drawChart(g: Graphics): void
+- drawTitle(g: Graphics): void
+- calculatePercentage(): double
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>810</x>
+      <y>300</y>
+      <w>190</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>cis::view::DataEntryView
+--
+- tableModel: DataEntryTableModel
+- table: JTable
+- scroller: JScrollPane
+- place:Place
+- columns:Object[]
+--
++ DataEntryView()
++ DataEntryView(place: Place)
++ setData(place: Place): void
++ getData(): Place
++getTable():JTable
+- updateCensusData(): boolean
+- updateTableData(): boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>620</x>
+      <y>750</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>/&lt;&lt;interface&gt;&gt;/
+ActionListener</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>480</x>
+      <y>740</y>
+      <w>160</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>140;30;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>510</x>
+      <y>460</y>
+      <w>150</w>
+      <h>310</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>130;290;130;50;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>640</x>
+      <y>450</y>
+      <w>50</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>30;300;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>670</x>
+      <y>450</y>
+      <w>200</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>30;300;30;80;180;80;180;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>480</x>
+      <y>450</y>
+      <w>270</w>
+      <h>370</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>250;30;250;350;30;350</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>480</x>
+      <y>450</y>
+      <w>450</w>
+      <h>390</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>430;30;430;370;30;370</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>480</x>
+      <y>450</y>
+      <w>290</w>
+      <h>1040</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>270;30;270;1020;30;1020</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>480</x>
+      <y>450</y>
+      <w>470</w>
+      <h>1060</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>450;30;450;1040;30;1040</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>240</x>
+      <y>40</y>
+      <w>320</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>cis::controller::CensusController
+--
+- censusModel: CensusModel
+- selectionView: SelectionView
++ lastSelectedState: String
++ entryView: DataEntryView
+--
++ CensusController()
++ addListeners():void
++ getview(): SelectionView</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>580</x>
+      <y>220</y>
+      <w>100</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>javax::swing::JFrame</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>470</x>
+      <y>200</y>
+      <w>130</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>110;30;30;30;30;60</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>650</x>
+      <y>200</y>
+      <w>280</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;260;30;260;100</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>660</x>
+      <y>250</y>
+      <w>100</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>javax::swing::JPanel</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>690</x>
+      <y>240</y>
+      <w>50</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;60</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>730</x>
+      <y>230</y>
+      <w>160</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;140;30;140;70</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>490</x>
+      <y>230</y>
+      <w>190</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>170;30;30;30;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>80</x>
+      <y>810</y>
+      <w>100</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>java::util::ArrayList</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>150</x>
+      <y>790</y>
+      <w>130</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;110;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>130</x>
+      <y>800</y>
+      <w>150</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;130;130;130</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>30</x>
+      <y>800</y>
+      <w>250</w>
+      <h>490</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>110;30;110;90;30;90;30;470;230;470</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>140</x>
+      <y>1300</y>
+      <w>110</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>java::util::LinkedHashMap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>170</x>
+      <y>1300</y>
+      <w>110</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;100;90;100</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>50</x>
+      <y>320</y>
+      <w>110</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>javax::swing::JMenu</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>50</x>
+      <y>260</y>
+      <w>110</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>javax::swing::JButton</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>50</x>
+      <y>350</y>
+      <w>110</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>javax::swing::JMenuItem</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>50</x>
+      <y>290</y>
+      <w>110</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>javax::swing::JMenuBar</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>50</x>
+      <y>380</y>
+      <w>110</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>java::awt::Component</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>130</x>
+      <y>240</y>
+      <w>130</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;110;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>130</x>
+      <y>270</y>
+      <w>130</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;110;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>130</x>
+      <y>300</y>
+      <w>130</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;110;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>130</x>
+      <y>330</y>
+      <w>130</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;110;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>130</x>
+      <y>360</y>
+      <w>130</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;110;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>370</x>
+      <y>170</y>
+      <w>50</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;90;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>0</x>
+      <y>170</y>
+      <w>390</w>
+      <h>640</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>260;620;30;620;30;90;370;90;370;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>530</x>
+      <y>140</y>
+      <w>430</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>410;160;410;30;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>420</x>
+      <y>170</y>
+      <w>200</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>180;130;180;80;30;80;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>600</x>
+      <y>210</y>
+      <w>50</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;90</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>0</x>
+      <y>60</y>
+      <w>160</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>cis::Main
+--
+- controller: CensusController
+- view: SelectionView
+--
++ Main()
+_+ main(args: String[]): void_
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>130</x>
+      <y>100</y>
+      <w>130</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>110;30;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>60</x>
+      <y>170</y>
+      <w>290</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>270;90;270;70;30;70;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>50</x>
+      <y>410</y>
+      <w>110</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>/&lt;&lt;interface&gt;&gt;/
+/WindowListener/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>130</x>
+      <y>390</y>
+      <w>130</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;110;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Text</type>
+    <coordinates>
+      <x>10</x>
+      <y>0</y>
+      <w>330</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Project 004 Design Phase
+CS 2334 001 Programming Structures and Abstractions
+Matthew Crist, Shane Moore</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Note</type>
+    <coordinates>
+      <x>10</x>
+      <y>740</y>
+      <w>1030</w>
+      <h>970</h>
+    </coordinates>
+    <panel_attributes>bg=red
+Shane Moore
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>50</x>
+      <y>450</y>
+      <w>110</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>javax::swing::JList</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>50</x>
+      <y>480</y>
+      <w>110</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>javax::swing::JScrollPane</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>130</x>
+      <y>430</y>
+      <w>130</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;110;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>130</x>
+      <y>460</y>
+      <w>130</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;110;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1110</x>
+      <y>330</y>
+      <w>210</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>cis::view::DataEntryTableModel
+--
+--
++DataEntryTableModel(object: Object[], num:int)
++isCellEditable(num:int,num:int):boolean
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>970</x>
+      <y>360</y>
+      <w>160</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>140;30;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>150</x>
+      <y>1190</y>
+      <w>130</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;110;30;30;110;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>130</x>
+      <y>1040</y>
+      <w>150</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;260;30;30;130;30</additional_attributes>
+  </element>
+</diagram>

@@ -1,0 +1,32 @@
+Matthew Crist
+Shane Moore
+
+April 20, 2011
+
+Programming Structures and Abstractions
+
+Project 4 Milestones.txt
+
+
+1. Create appropriate classes, complete with variables and methods, to handle the
+application data on particular census information as described below under model.
+
+1. The model package covers this milestone including the CensusModel, with appropriate
+classes Census,State,Data and Place.
+
+2. Add a class, complete with data and methods, to the model to allow the model to
+correctly interact with the controller and the views.  
+
+2.The Main class facilitates the connection between the model and the views.
+
+3. Create appropriate classes, complete with variables and methods, for the views
+described below.
+
+3. All of the appropriate classes are included for the view these clases include the 
+SelectionView, PieCharView and DataEntryView.
+
+4. Create an appropriate class, complete with variables and methods, for the controller as
+described below.
+
+4. The appropriate controller class was created to connect the model and views the
+CensusController.
